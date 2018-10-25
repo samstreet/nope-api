@@ -1,31 +1,34 @@
-import * as express from 'express';
+import express = require('express');
+import RequestLogger = require("./Core/Http/Middleware/RequestLogger");
+import CORS = require("./Core/Http/Middleware/CORS");
+import {CoreController} from './Core/Http/Controller';
+import {PostController} from './Posts/Http/Controller';
 
-class App {
-    public express
+export class App {
 
-    constructor () {
-        this.express = express();
-        this.mountModules();
-        this.mountRoutes();
+    constructor(private app: express.Express, private port: number) {
+        this.configureRoutes(app);
+        this.configureMiddleware(app);
     }
 
     /**
-     * Mount the application modules
+     * @param app - express application
      */
-    private mountModules (): void {
-
+    private configureMiddleware(app: express.Express) {
+        app.use(CORS);
+        app.use(RequestLogger);
     }
 
     /**
-     * Mount the application routes
+     * @param app - express application
      */
-    private mountRoutes (): void {
-        const router = express.Router()
-        router.get('/', (req, res) => {
-            res.sendFile(__dirname + '/index.html');
-        })
-        this.express.use('/', router)
+    private configureRoutes(app: express.Express) {
+        app.use("/", CoreController);
+        app.use("/posts/", PostController);
     }
+
+    public run() {
+        this.app.listen(this.port);
+    }
+
 }
-
-export default new App().express

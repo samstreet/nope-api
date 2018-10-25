@@ -1,26 +1,20 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
-class Routes {
+const express_1 = require("express");
+class CustomerRouter extends express_1.Router {
     constructor() {
-        this.routes = [
-            {
-                uri: '/',
-                path: 'root',
-                methods: ['get']
-            }
-        ];
+        super();
+        this.register();
     }
-    registerRoutes() {
-        this.routes.forEach((route) => {
-            express.router[method](route.uri, function (req, res) {
-                // Automatically 404 if the `route.path` doesn't exist
-                console.error(e);
-                require(routesDir + 'errors')['404'](req, res, route.path);
-                return;
-            });
+    register() {
+        super.get('/', (request, response) => {
+            let testData = {
+                firstName: "The",
+                lastName: "Burge"
+            };
+            response.append("Content-Type", "application/json");
+            response.send(testData);
         });
     }
 }
-exports.default = new Routes();
+module.exports = CustomerRouter;
 //# sourceMappingURL=Routes.js.map

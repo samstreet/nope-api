@@ -1,10 +1,5 @@
-import app from './App';
+import express = require('express');
+import {App} from './App';
 
-const port = process.env.PORT || 3000
-
-app.listen(port, (err) => {
-  if (err) {
-    return console.log(err)
-  }
-});
-
+let api = new App(express(), 3333);
+api.run();

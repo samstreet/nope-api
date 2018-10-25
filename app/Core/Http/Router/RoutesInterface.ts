@@ -1,5 +1,0 @@
-interface RoutesInterface {
-
-    registerRoutes(): void;
-
-}

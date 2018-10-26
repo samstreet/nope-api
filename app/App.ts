@@ -11,10 +11,14 @@ export class App {
         this.configureMiddleware(app);
     }
 
+    public run() {
+        this.app.listen(this.port);
+    }
+
     /**
      * @param app - express application
      */
-    private configureMiddleware(app: express.Express) {
+    protected configureMiddleware(app: express.Express) {
         app.use(CORS);
         app.use(RequestLogger);
     }
@@ -22,13 +26,9 @@ export class App {
     /**
      * @param app - express application
      */
-    private configureRoutes(app: express.Express) {
+    protected configureRoutes(app: express.Express) {
         app.use("/", CoreController);
         app.use("/posts/", PostController);
-    }
-
-    public run() {
-        this.app.listen(this.port);
     }
 
 }

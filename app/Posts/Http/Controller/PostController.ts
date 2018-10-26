@@ -8,7 +8,7 @@ router.get('/', (req: express.Request, res: express.Response) => {
 });
 
 router.get('/:name', (req: express.Request, res: express.Response) => {
-    let { name } = req.params;
+    let {name} = req.params;
 
     res.append('Content-Type', "application/json");
     res.send({post: "name"});

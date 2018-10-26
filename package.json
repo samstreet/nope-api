@@ -6,14 +6,23 @@
     "build": "gulp copy; gulp watch & tsc-watch -p . --onSuccess \"node dist/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["docker", "node", "typescript", "starter", "docker node typescript", "docker node", "docker typescript"],
+  "keywords": [
+    "docker",
+    "node",
+    "typescript",
+    "starter",
+    "docker node typescript",
+    "docker node",
+    "docker typescript"
+  ],
   "author": "Stephen Gardner (opensourceaugie@gmail.com)",
   "license": "ISC",
-  "homepage": "https://github.com/stephengardner/docker-node-typescript",
+  "homepage": "https://github.com/samstreet/node-api",
   "dependencies": {
-    "express": "^4.10.2",
+    "@types/mongoose": "^5.2.20",
+    "express": "^4.16.3",
     "gulp": "^3.9.1",
-    "socket.io": "^1.2.0"
+    "mongoose": "^5.3.7"
   },
   "repository": {
     "type": "git",
@@ -22,8 +31,6 @@
   "devDependencies": {
     "@types/express": "^4.11.0",
     "@types/node": "^10.11.4",
-    "express": "^4.16.3",
-    "graphql": "^14.0.2",
-    "mongoose": "^5.3.1"
+    "graphql": "^14.0.2"
   }
 }

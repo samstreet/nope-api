@@ -6,11 +6,8 @@ const Post = mongoose.model('Post', PostSchema);
 
 export class PostRepository implements PostRepositoryInterface {
 
-    private post: mongoose.Model<PostSchema>;
+    private readonly post;
 
-    /**
-     * @param post
-     */
     constructor(){
         this.post = Post;
     }

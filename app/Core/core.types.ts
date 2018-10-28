@@ -1,5 +1,6 @@
 const TYPES = {
-    Post: Symbol.for("Post")
+    PostRepository: Symbol("PostRepository"),
+    PostEntity: Symbol("PostEntity"),
 };
 
-export { TYPES };
+export default TYPES ;

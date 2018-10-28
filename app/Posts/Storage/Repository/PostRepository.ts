@@ -1,15 +1,19 @@
 import PostRepositoryInterface from "./Interfaces/PostRepositoryInterface";
 import * as mongoose from 'mongoose';
-import {PostSchema} from "../Entity/Post";
+import {injectable} from "inversify";
+import "reflect-metadata";
 
-const Post = mongoose.model('Post', PostSchema);
-
+@injectable()
 export class PostRepository implements PostRepositoryInterface {
 
     private readonly post;
 
     constructor(){
-        this.post = Post;
+        this.post = Array<Object>();
+    }
+
+    foo(){
+        return "Hello";
     }
 
     getModel(): mongoose.Schema {

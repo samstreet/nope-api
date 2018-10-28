@@ -2,6 +2,8 @@ import CoreRepositoryInterface from "../../../../Core/Storage/Repository/Interfa
 
 interface PostRepositoryInterface extends CoreRepositoryInterface{
 
+    foo();
+
 }
 
 export default PostRepositoryInterface;

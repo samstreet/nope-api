@@ -1,8 +1,5 @@
 import * as mongoose from 'mongoose';
-
-export interface PostInterface extends mongoose.Document {
-    title: string;
-}
+import "reflect-metadata";
 
 export const PostSchema = new mongoose.Schema({
     title: {type:String, required: true},

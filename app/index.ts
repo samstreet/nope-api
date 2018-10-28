@@ -1,4 +1,6 @@
 import express = require('express');
 import {App} from './App';
+import config from "./application.config";
 
-new App(express(), 3333).run();
+let api = new App(express(), config.LISTEN_PORT);
+api.run();

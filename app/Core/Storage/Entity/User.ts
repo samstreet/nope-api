@@ -1,16 +1,20 @@
-import * as mongoose from 'mongoose';
-import mongoosePaginate from 'mongoose-paginate';
+import {injectable} from "inversify";
+import {Schema} from "mongoose";
 import "reflect-metadata";
 
-let Schema = mongoose.Schema;
+export interface IUserModel {
+    fullName(): string;
+}
 
-const personSchema = new mongoose.Schema({
-    first: {type: String, required: 'FirstNameInvalid'},
-    last: String,
-    email: {type: String, unique: true, lowercase: true, required: 'EmailInvalid'},
-    password: {type: String, select: false, required: 'PasswordInvalid'}
-});
+@injectable()
+export class UserSchema extends Schema implements IUserModel {
 
-personSchema.plugin(mongoosePaginate);
+    constructor({name: {type:String}}){
+        super({name: {type:String}});
+    }
 
-export default mongoose.model('Person', personSchema);
+    fullName(): string {
+        return "Hello";
+    }
+
+}

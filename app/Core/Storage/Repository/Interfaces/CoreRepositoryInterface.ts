@@ -1,8 +1,6 @@
-import * as mongoose from 'mongoose';
-
 interface CoreRepositoryInterface {
 
-    getModel(): mongoose.Schema;
+    getModel();
 
 }
 

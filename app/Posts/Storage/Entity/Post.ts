@@ -1,29 +1,19 @@
-import {Schema} from 'mongoose';
 import "reflect-metadata";
 import {injectable} from "inversify";
-
-export interface PostInterface {
-    getTitle(): string;
-    getSchema(): Schema;
-}
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {PostInterface} from "./Interfaces/PostInterface";
 
 @injectable()
-export class PostEntity implements PostInterface{
+@Entity()
+export class PostEntity implements PostInterface {
 
-    private PostSchema;
-    
-    constructor(){
-        this.PostSchema = new Schema({
-            title: {type:String, required: true},
-        });
-    }
+    @PrimaryGeneratedColumn()
+    id: number;
 
-    getTitle(): string {
-        return this.PostSchema.title;
-    }
+    @Column()
+    title: string;
 
-    getSchema(): Schema {
-        return this.PostSchema;
-    }
+    @Column()
+    created_at: Date;
 
 }

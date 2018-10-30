@@ -1,20 +1,11 @@
 import {injectable} from "inversify";
-import {Schema} from "mongoose";
 import "reflect-metadata";
-
-export interface IUserModel {
-    fullName(): string;
-}
+import {Entity} from "typeorm";
+import {UserEntityInterface} from "./Interfaces/UserEntityInterface";
 
 @injectable()
-export class UserSchema extends Schema implements IUserModel {
+@Entity()
+export class User implements UserEntityInterface {
 
-    constructor({name: {type:String}}){
-        super({name: {type:String}});
-    }
-
-    fullName(): string {
-        return "Hello";
-    }
 
 }

@@ -1,8 +1,6 @@
 import CoreRepositoryInterface from "../../../../Core/Storage/Repository/Interfaces/CoreRepositoryInterface";
 
-interface PostRepositoryInterface extends CoreRepositoryInterface{
-
-    foo();
+interface PostRepositoryInterface extends CoreRepositoryInterface {
 
 }
 

@@ -3,4 +3,4 @@ const ApplicationConfig = {
     LISTEN_PORT: 3333
 };
 
-export default ApplicationConfig ;
+export default ApplicationConfig;

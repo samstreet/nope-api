@@ -1,6 +1,8 @@
+import {AbstractEntity} from "../../Entity/AbstractEntity";
+
 interface CoreRepositoryInterface {
 
-    getModel();
+    getModel(): AbstractEntity;
 
 }
 

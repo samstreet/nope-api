@@ -3,6 +3,7 @@ import "reflect-metadata";
 import TYPES from "../../../Core/core.types";
 import {PostInterface} from "../Entity/Interfaces/PostInterface";
 import PostRepositoryInterface from "./Interfaces/PostRepositoryInterface";
+import {AbstractEntity} from "../../../Core/Storage/Entity/AbstractEntity";
 
 @injectable()
 export class PostRepository implements PostRepositoryInterface {
@@ -24,9 +25,8 @@ export class PostRepository implements PostRepositoryInterface {
     /**
      *
      */
-    getModel() {
+    getModel(): AbstractEntity {
         return this.post
     }
-
 
 }

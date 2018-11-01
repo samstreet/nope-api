@@ -1,8 +1,7 @@
 import express = require('express');
-import {use} from 'typescript-mix';
-import {AuthenticationController} from "./Http/Controller/AuthenticationController";
+import {PostController} from "./Http/Controller";
 
-export class Authentication implements BootableService{
+export class Posts implements BootableService {
 
     constructor(private app: express.Express, private port: number) {
         this.configureMiddleware(app);
@@ -22,7 +21,7 @@ export class Authentication implements BootableService{
      * @param app - express application
      */
     protected configureRoutes(app: express.Express) {
-        app.use("/authentication/", AuthenticationController);
+        app.use("/posts/", PostController);
     }
 
 }

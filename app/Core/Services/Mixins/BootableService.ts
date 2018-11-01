@@ -1,7 +1,5 @@
-class BootableService {
+interface BootableService {
     
-    boot = () => {
-        this.app.listen(this.port);
-    }
+    boot(): void;
 
 }

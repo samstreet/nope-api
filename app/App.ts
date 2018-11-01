@@ -3,10 +3,8 @@ import RequestLogger = require("./Core/Http/Middleware/RequestLogger");
 import CORS = require("./Core/Http/Middleware/CORS");
 import VerifyToken = require("./Authentication/Http/Middleware/VerifyToken");
 import {CoreController} from './Core/Http/Controller';
-import {PostController} from './Posts/Http/Controller';
-import {AuthenticationController} from "./Authentication/Http/Controller/AuthenticationController";
 
-export class App {
+export class App implements BootableService{
 
     constructor(private app: express.Express, private port: number) {
         this.configureMiddleware(app);
@@ -14,7 +12,7 @@ export class App {
     }
 
     public run() {
-        this.app.listen(this.port);
+        this.boot();
     }
 
     /**
@@ -31,8 +29,10 @@ export class App {
      */
     protected configureRoutes(app: express.Express) {
         app.use("/", CoreController);
-        app.use("/authentication/", AuthenticationController);
-        app.use("/posts/", PostController);
+    }
+
+    boot(): void {
+        this.app.listen(this.port);
     }
 
 }

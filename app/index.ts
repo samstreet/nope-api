@@ -1,6 +1,10 @@
 import express = require('express');
 import {App} from './App';
-import config from "./application.config";
+import {Posts} from "./Posts/Posts";
+import {Authentication} from "./Authentication/Authentication";
 
-let api = new App(express(), config.LISTEN_PORT);
-api.run();
+let app = express();
+
+new Posts(app, 4444).boot();
+new Authentication(app, 5555).boot();
+new App(app, 3333).run();

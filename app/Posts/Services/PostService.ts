@@ -22,7 +22,7 @@ export class PostService implements PostServiceInterface {
     }
 
     public test() {
-        console.log(this.repo.foo());
+        console.log(this.repo.getModel());
     }
 
 }

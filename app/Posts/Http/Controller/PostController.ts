@@ -1,6 +1,6 @@
 import express = require("express");
 import container from "../../../inversify.config";
-import TYPES from "../../../Core/core.types";
+import POST_TYPES from "../../../Posts/posts.types";
 import PostServiceInterface from "../../Services/Interfaces/PostServiceInterface";
 import * as log from 'loglevel';
 
@@ -14,7 +14,7 @@ router.get('/', (req: express.Request, res: express.Response) => {
 router.get('/:name', (req: express.Request, res: express.Response) => {
     let {name} = req.params;
 
-    let service = container.get<PostServiceInterface>(TYPES.PostService);
+    let service = container.get<PostServiceInterface>(POST_TYPES.PostService);
     log.info(service.test());
 
     res.append('Content-Type', "application/json");

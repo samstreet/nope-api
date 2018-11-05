@@ -1,7 +1,7 @@
 import PostServiceInterface from "./Interfaces/PostServiceInterface"
 import {inject, injectable} from "inversify";
 import "reflect-metadata";
-import TYPES from "../../Core/core.types";
+import POST_TYPES from "../../Posts/posts.types";
 import PostRepositoryInterface from "../Storage/Repository/Interfaces/PostRepositoryInterface";
 
 @injectable()
@@ -16,7 +16,7 @@ export class PostService implements PostServiceInterface {
      * @param PostRepositoryInterface
      */
     constructor(
-        @inject(TYPES.PostRepository) PostRepositoryInterface: PostRepositoryInterface,
+        @inject(POST_TYPES.PostRepository) PostRepositoryInterface: PostRepositoryInterface,
     ) {
         this.repo = PostRepositoryInterface;
     }

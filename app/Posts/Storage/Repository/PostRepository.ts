@@ -1,6 +1,6 @@
 import {inject, injectable} from "inversify";
 import "reflect-metadata";
-import TYPES from "../../../Core/core.types";
+import POST_TYPES from "../../../Posts/posts.types";
 import {PostInterface} from "../Entity/Interfaces/PostInterface";
 import PostRepositoryInterface from "./Interfaces/PostRepositoryInterface";
 import {AbstractEntity} from "../../../Core/Storage/Entity/AbstractEntity";
@@ -17,7 +17,7 @@ export class PostRepository implements PostRepositoryInterface {
      * @param PostEntityInterface
      */
     constructor(
-        @inject(TYPES.PostEntity) PostEntityInterface: PostInterface,
+        @inject(POST_TYPES.PostEntity) PostEntityInterface: PostInterface,
     ) {
         this.post = PostEntityInterface;
     }

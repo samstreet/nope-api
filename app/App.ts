@@ -20,7 +20,6 @@ export class App implements BootableService{
     protected configureMiddleware(app: express.Express) {
         app.use(CORS);
         app.use(RequestLogger);
-        app.use(VerifyToken);
     }
 
     /**
@@ -32,7 +31,7 @@ export class App implements BootableService{
 
     boot(): void {
         new Posts(this.app, this.port).boot();
-        new Authentication(express(), 4444).boot();
+        new Authentication(this.app, 4444).boot();
     }
 
 }

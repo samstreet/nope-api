@@ -9,13 +9,14 @@ let VerifyToken: express.RequestHandler = (request: express.Request, response: e
     } else if (request.query && request.query.token) {
         token = request.query.token;
     }
-
-    const x = jwt.verify('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c', 'secret', (err, decoded) => {
-        if (err) throw err;
-        console.log(decoded);
-    });
-    console.log(x);
-
+    
+    try{
+        jwt.verify(token, 'supersecret', (err, decoded) => { if (err) throw err; });
+    } catch(err){
+        response.setHeader('Content-Type', 'application/json');
+        response.status(401).send({error: "Unathorised User"});
+    }
+    
     next();
 };
 

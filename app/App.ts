@@ -20,6 +20,7 @@ export class App implements BootableService{
     protected configureMiddleware(app: express.Express) {
         app.use(CORS);
         app.use(RequestLogger);
+        app.use(VerifyToken);
     }
 
     /**
